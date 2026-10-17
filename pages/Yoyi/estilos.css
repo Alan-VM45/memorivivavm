@@ -1,0 +1,399 @@
+:root {
+  --primary-color: #5a3e1b;
+  --accent-color: #8c4d00;
+  --bg-gradient-start: #fff9f0;
+  /* Lighter, creamier start */
+  --bg-gradient-end: #ffe5b4;
+  --glass-bg: rgba(255, 255, 255, 0.65);
+  /* More opaque for paper feel */
+  --glass-border: rgba(255, 255, 255, 0.8);
+  --glass-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.1);
+  --text-font: 'Lato', sans-serif;
+  --heading-font: 'Playfair Display', serif;
+  --script-font: 'Great Vibes', cursive;
+  /* New romantic font */
+}
+
+body {
+  font-family: var(--text-font);
+  background: linear-gradient(to bottom, var(--bg-gradient-start), var(--bg-gradient-end));
+  color: var(--primary-color);
+  margin: 0;
+  padding: 0;
+  line-height: 1.9;
+  /* Slightly looser for reading */
+  overflow-x: hidden;
+}
+
+/* Typography */
+h1,
+h2,
+h3 {
+  font-family: var(--heading-font);
+  color: var(--accent-color);
+  margin-bottom: 1rem;
+}
+
+.memoria-viva-brand {
+  font-family: var(--script-font);
+  font-size: 4rem;
+  color: var(--accent-color);
+  margin-bottom: 0.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  opacity: 0.9;
+  line-height: 1;
+}
+
+h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  font-style: italic;
+  /* More romantic */
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+}
+
+h2 {
+  font-size: 2.2rem;
+  margin-top: 2rem;
+  border-bottom: 1px solid rgba(140, 77, 0, 0.3);
+  /* Thinner, more elegant line */
+  display: inline-block;
+  padding-bottom: 0.5rem;
+  font-style: italic;
+}
+
+p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  color: #4a3b2a;
+  font-weight: 300;
+  /* Lighter weight for elegance */
+}
+
+/* Layout & Glassmorphism */
+header {
+  text-align: center;
+  padding: 5rem 1rem 3rem;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.4) 0%, transparent 70%);
+}
+
+header h1 {
+  max-width: 900px;
+  margin: 0 auto 2rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+header img {
+  width: 100%;
+  max-width: 400px;
+  /* Slightly smaller for elegance */
+  border-radius: 50% 50% 0 0 / 100px 100px 0 0;
+  /* Arch shape */
+  box-shadow: 0 15px 35px rgba(90, 62, 27, 0.25);
+  border: 8px solid rgba(255, 255, 255, 0.5);
+  transition: transform 0.5s ease;
+}
+
+header img:hover {
+  transform: scale(1.02);
+}
+
+section {
+  max-width: 900px;
+  /* Narrower for reading comfort */
+  margin: 4rem auto;
+  padding: 4rem;
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  border-radius: 4px;
+  /* Sharper corners for book feel */
+  box-shadow:
+    0 1px 1px rgba(0, 0, 0, 0.1),
+    0 10px 30px rgba(0, 0, 0, 0.05),
+    inset 0 0 40px rgba(255, 248, 232, 0.5);
+  /* Inner glow like paper */
+  position: relative;
+}
+
+/* Decorative corner accents (pseudo-elements) */
+section::before,
+section::after {
+  content: '';
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--accent-color);
+  opacity: 0.2;
+  transition: all 0.3s ease;
+}
+
+section::before {
+  top: 20px;
+  left: 20px;
+  border-right: none;
+  border-bottom: none;
+}
+
+section::after {
+  bottom: 20px;
+  right: 20px;
+  border-left: none;
+  border-top: none;
+}
+
+section:hover::before,
+section:hover::after {
+  width: 60px;
+  height: 60px;
+  opacity: 0.4;
+}
+
+/* Images */
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+  border: 4px solid white;
+  /* Photo border */
+}
+
+img:hover {
+  transform: translateY(-3px) rotate(1deg);
+  /* Slight organic tilt */
+}
+
+.imagenes-lado-a-lado,
+.imageneslado-a-lado {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 3rem;
+}
+
+.imagenes-lado-a-lado img,
+.imageneslado-a-lado img {
+  width: 300px;
+  flex-grow: 1;
+  object-fit: cover;
+  height: 350px;
+}
+
+/* Specific Section Tweaks */
+.historia-contenedor>div {
+  margin-bottom: 5rem;
+  text-align: center;
+}
+
+.historia-contenedor p {
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.historia-contenedor p::first-letter {
+  font-family: var(--script-font);
+  font-size: 3.5rem;
+  float: left;
+  line-height: 0.8;
+  padding-right: 0.5rem;
+  color: var(--accent-color);
+}
+
+/* Carousel */
+.carousel-contenedor {
+  position: relative;
+  margin: 4rem 0;
+  padding: 0 3rem;
+}
+
+.carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  gap: 2rem;
+  padding: 2rem 1rem;
+  scrollbar-width: none;
+}
+
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel img {
+  scroll-snap-align: center;
+  height: 320px;
+  width: auto;
+  flex-shrink: 0;
+  border-radius: 4px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  transform: rotate(-2deg);
+  /* Photo pile effect */
+  transition: transform 0.3s ease;
+}
+
+.carousel img:nth-child(even) {
+  transform: rotate(2deg);
+}
+
+.carousel img:hover {
+  transform: scale(1.05) rotate(0deg);
+  z-index: 10;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid var(--accent-color);
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: var(--accent-color);
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  z-index: 20;
+}
+
+.carousel-btn:hover {
+  background: var(--accent-color);
+  color: white;
+}
+
+.carousel-btn.izquierda {
+  left: 0;
+}
+
+.carousel-btn.derecha {
+  right: 0;
+}
+
+/* Audio Player */
+audio {
+  width: 80%;
+  max-width: 300px;
+  margin: 1rem auto;
+  display: block;
+  border-radius: 30px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+
+audio:hover {
+  opacity: 1;
+}
+
+/* Final Section */
+.final {
+  text-align: center;
+  background: transparent;
+  border: none;
+  padding: 4rem 2rem;
+  position: relative;
+}
+
+.final::before {
+  content: '❦';
+  /* Floral ornament */
+  display: block;
+  font-size: 3rem;
+  color: var(--accent-color);
+  margin-bottom: 2rem;
+  opacity: 0.5;
+}
+
+.final img {
+  max-width: 600px;
+  margin-bottom: 2rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 50%;
+  /* Circular vignette */
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border: 10px solid rgba(255, 255, 255, 0.7);
+}
+
+.final p {
+  font-family: var(--script-font);
+  font-size: 2.5rem;
+  /* Larger for script font */
+  color: var(--accent-color);
+  line-height: 1.4;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 4rem;
+  background: linear-gradient(to top, rgba(249, 210, 157, 0.3), transparent);
+  color: var(--primary-color);
+  font-family: var(--heading-font);
+  font-style: italic;
+  font-size: 1.1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .memoria-viva-brand {
+    font-size: 3rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  section {
+    margin: 1.5rem;
+    padding: 2rem 1.5rem;
+  }
+
+  .carousel img {
+    height: 200px;
+  }
+
+  .imagenes-lado-a-lado img,
+  .imageneslado-a-lado img {
+    width: 100%;
+    height: auto;
+  }
+
+  .carousel-contenedor {
+    padding: 0 0.5rem;
+  }
+
+  .final img {
+    width: 90%;
+    border-width: 5px;
+  }
+}
+
+/* Fix for specific image to show completely */
+.imagenes-lado-a-lado img.img-completa {
+  object-fit: contain;
+  height: auto;
+  max-height: 600px;
+  width: 100%;
+  max-width: 400px;
+}
